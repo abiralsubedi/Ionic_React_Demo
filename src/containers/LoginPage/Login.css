@@ -1,0 +1,15 @@
+.logo {
+    padding: 20px;
+    min-height: 200px;
+    text-align: center;
+    background: #1b0b69;
+}
+
+.login-logo img {
+    max-width: 150px;
+}
+
+.list {
+    margin-bottom: 0;
+}
+  

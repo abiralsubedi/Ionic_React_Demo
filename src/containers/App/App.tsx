@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-import LoginPage from './containers/LoginPage/LoginPage'
-import StudentDashboard from './containers/StudentDashboard/StudentDashboard';
+import LoginPage from '../LoginPage/LoginPage'
+import StudentDashboard from '../StudentDashboard/StudentDashboard';
 
 import { IonApp, IonSplitPane, IonPage } from '@ionic/react';
 

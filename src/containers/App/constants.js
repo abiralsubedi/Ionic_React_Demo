@@ -1,0 +1,14 @@
+export const LOGIN = 'AP/App/LOGIN'
+export const LOGIN_SUCCESS = 'AP/App/LOGIN_SUCCESS'
+export const LOGIN_ERROR = 'AP/App/LOGIN_ERROR'
+export const LOG_OUT = 'AP/App/LOG_OUT'
+
+export const GET_COUNTRY_LIST = 'AP/App/GET_COUNTRY_LIST'
+export const GET_COUNTRY_LIST_SUCCESS = 'AP/App/GET_COUNTRY_LIST_SUCCESS'
+export const GET_COUNTRY_LIST_ERROR = 'AP/App/GET_COUNTRY_LIST_ERROR'
+
+export const GET_PROFILE = 'app/App/GET_PROFILE'
+export const GET_PROFILE_SUCCESS = 'app/App/GET_PROFILE_SUCCESS'
+export const GET_PROFILE_ERROR = 'app/App/GET_PROFILE_ERROR'
+
+export const SET_TITLE = 'AP/App/SET_TITLE'

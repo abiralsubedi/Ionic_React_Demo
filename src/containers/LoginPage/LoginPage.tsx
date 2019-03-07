@@ -21,59 +21,79 @@ import {
   makeSelectPassword,
   makeSelectSuccess,
 } from './selectors'
+import { changeEmail, changePassword, postForgotPassword } from './actions'
 import saga from './saga'
 import reducer from './reducer'
 import './LoginPage.css';
 
 type Props =  RouteComponentProps<{}> & typeof mapDispatchToProps & ReturnType<typeof mapStateToProps>;
 
-// type State = {}
+type State = {
+  email: String,
+  password: String,
+}
 
-class LoginPage extends Component<Props> {
+class LoginPage extends Component<Props, State> {
   // ionRefresherRef: React.RefObject<HTMLIonRefresherElement>
   // ionFabRef: React.RefObject<HTMLIonFabElement>
-  // state = {}
+  state = {
+    email: "",
+    password: "",
+  }
 
   constructor(props: Props) {
     super(props);
 
-    props.updateLocations();
-    props.updateSessions();
-    props.updateSpeakers();
+    props.onSubmitForm();
 
     // this.ionRefresherRef = React.createRef<HTMLIonRefresherElement>();
     // this.ionFabRef = React.createRef<HTMLIonFabElement>();
   }
 
   render() {
+    const {
+      loading,
+      onSubmitForm,
+      error,
+      success,
+      isAuthenticated,
+      profile,
+      email,
+      password,
+    } = this.props
     return (
       <>
         <IonContent>
           <div className="logo">
             <img src="assets/img/adpeda.png" alt="Ionic logo"/>
           </div>
-          <form noValidate>
+          <form noValidate onSubmit={(e) => onSubmitForm()} >
             <IonList no-lines>
               <IonItem>
                 <IonLabel color="primary">Username</IonLabel>
                 <IonInput
-                  onIonChange={this.updateUserName}
                   name="username"
                   type="text"
                   autocapitalize="off"
-                  value={this.state.username}
+                  value={this.state.email}
                   required>
                 </IonInput>
               </IonItem>
               <IonItem>
                 <IonLabel color="primary">Password</IonLabel>
-                <IonInput name="password" type="password" required></IonInput>
+                <IonInput
+                  name="password"
+                  type="password"
+                  autocapitalize="off"
+                  value={this.state.password}
+                  required>
+                </IonInput>
               </IonItem>
             </IonList>
 
             <IonRow responsive-sm>
               <IonCol>
-                <IonButton onClick={this.logInUser} type="submit">
+                <IonButton type="submit">
                   Login
                 </IonButton>
               </IonCol>
@@ -87,12 +107,13 @@ class LoginPage extends Component<Props> {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onchangeEmail: (e) => dispatch(changeEmail(e.target.value)),
-    onchangePassword: (e) => dispatch(changePassword(e.target.value)),
+    // onchangeEmail: (e: CustomEvent) => dispatch(changeEmail(e.detail.value)),
+    // onchangePassword: (e: CustomEvent) => dispatch(changePassword(e.detail.value)),
     onSubmitForm: () => dispatch(login()),
-    forgotPassword: () => dispatch(postForgotPassword()),
+    // forgotPassword: () => dispatch(postForgotPassword()),
   }
 }
+
 
 const mapStateToProps = createStructuredSelector({
   email: makeSelectEmail(),

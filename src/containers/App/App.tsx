@@ -17,7 +17,7 @@ const App = () => (
           <IonSplitPane contentId="main">
             <IonPage id="main">
               <Switch>
-                <Route path='/studentDashboard' component={StudentDashboard} />
+                <Route path='/dashboard' component={StudentDashboard} />
                 <Route path="/" component={LoginPage}></Route>
               </Switch>
             </IonPage>

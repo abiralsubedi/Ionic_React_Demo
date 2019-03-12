@@ -13,7 +13,7 @@ import {
   SET_TITLE,
 } from './constants'
 
-export const login = () => ({ type: LOGIN })
+export const login = (email,  password) => ({ type: LOGIN, email, password })
 
 export const loginSuccess = (token, role, expirationTime) => ({
   type: LOGIN_SUCCESS,

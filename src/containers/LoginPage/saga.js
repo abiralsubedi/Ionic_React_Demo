@@ -15,9 +15,9 @@ import { makeSelectToken, makeSelectRole } from '../App/selectors'
 import { POST_FORGOT_PASSWORD } from './constants'
 import { postForgotPasswordSuccess, clearData } from './actions'
 
-export function* postLogin() {
-  const email = yield select(makeSelectEmail())
-  const password = yield select(makeSelectPassword())
+export function* postLogin({email, password}) {
+  // const email = yield select(makeSelectEmail())
+  // const password = yield select(makeSelectPassword())
   const tenancyName = 'Default'
 
   try {
@@ -46,7 +46,7 @@ export function* postLogin() {
 
     if (role === 'Admin') yield call(getCountryList)
 
-    yield put(window.location.replace('/'))
+    yield put(window.location.replace('/dashboard'))
   } catch ({ message }) {
     yield put(loginError(message))
   }
